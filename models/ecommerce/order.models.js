@@ -23,6 +23,15 @@ const orderSchema = new mongoose.Schema(
     orderItems: {
       type: [orderItemsSchema],
     },
+    address: {
+      type: String,
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ["PENDING", "CANCELLED", "DELIVERED"],
+      default: "PENDING",
+    }
   },
   { timestamps: true }
 );
